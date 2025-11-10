@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maheetha — Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#070b15;
+  --card:#111827;
+  --accent1:#2dd4bf;
+  --accent2:#7c3aed;
+  --muted:#a7b3c8;
+  --radius:20px;
+  --ff-body:'Sora',sans-serif;
+  --ff-head:'Poppins',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--ff-body);
+  background:var(--bg);
+  color:#e6edf6;
+  overflow-x:hidden;
+  position:relative;
+}
+#particles-js{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;background:radial-gradient(circle at top, #0f172a 0%, #020617 100%);
+}
+section{padding:100px 0;position:relative;z-index:1}
+.container{width:min(1200px,90%);margin:0 auto}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+}
+.hero .grid{
+  display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;
+}
+.hero h1{
+  font-family:var(--ff-head);
+  font-size:80px;line-height:1.1;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero h2{font-size:30px;font-weight:600;margin:10px 0 25px;color:#fff;text-align:left;}
+.hero p{color:var(--muted);line-height:1.7;margin-bottom:35px;font-size:18px;max-width:520px}
+.btn{
+  display:inline-block;padding:14px 28px;border-radius:12px;font-weight:600;
+  text-decoration:none;margin-right:14px;transition:all .35s;position:relative;z-index:2;
+}
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#04101b;box-shadow:0 0 20px rgba(124,58,237,0.3);
+}
+.btn-outline{border:1px solid rgba(255,255,255,0.2);color:var(--muted);}
+.btn:hover{transform:translateY(-4px) scale(1.03);filter:brightness(1.15);}
+.photo-frame{
+  width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at 30% 20%,rgba(124,58,237,0.35),rgba(45,212,191,0.05) 40%,transparent 70%);
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid rgba(255,255,255,0.07);
+  animation:float 4s ease-in-out infinite;
+}
+.photo-frame img{
+  width:92%;height:92%;object-fit:cover;border-radius:50%;
+  border:6px solid rgba(255,255,255,0.08);
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+
+/* HEADINGS */
+section h2{
+  text-align:center;font-family:var(--ff-head);
+  font-size:46px;margin-bottom:30px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:0 0 18px rgba(124,58,237,0.3);
+}
+
+/* ABOUT */
+#about p{
+  color:var(--muted);line-height:1.9;margin-bottom:20px;text-align:center;
+  max-width:850px;margin-inline:auto;font-size:18px;
+}
+
+/* EDUCATION */
+#education {
+  text-align: center;
+}
+.edu-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 16px;
+  padding: 25px 30px;
+  margin: 20px auto;
+  max-width: 700px;
+  transition: all 0.4s;
+}
+.edu-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(145deg,rgba(45,212,191,0.25),rgba(124,58,237,0.25));
+}
+.edu-card h3 {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.edu-card p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* SKILLS */
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:30px;margin-top:45px;
+}
+.skill{
+  background:rgba(255,255,255,0.03);
+  padding:32px;border-radius:18px;text-align:center;
+  transition:transform .4s,box-shadow .4s,background .4s;
+}
+.skill:hover{
+  transform:translateY(-8px) scale(1.05);
+  background:linear-gradient(145deg,rgba(45,212,191,0.25),rgba(124,58,237,0.25));
+}
+
+/* PROJECTS */
+.projects-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;margin-top:45px;
+}
+.project{
+  background:rgba(255,255,255,0.03);padding:28px;border-radius:18px;
+  transition:all .4s;
+}
+.project:hover{
+  transform:translateY(-8px);
+  background:linear-gradient(145deg,rgba(45,212,191,0.25),rgba(124,58,237,0.25));
+}
+.project h3{margin-bottom:12px;color:#fff;font-size:20px}
+.project p{color:var(--muted);font-size:16px;line-height:1.7}
+
+/* PUBLICATIONS */
+.pubs-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:26px;margin-top:45px;
+}
+.pub{
+  background:rgba(255,255,255,0.03);padding:26px;border-radius:16px;transition:all .4s;
+}
+.pub:hover{
+  transform:translateY(-7px);
+  background:linear-gradient(145deg,rgba(45,212,191,0.25),rgba(124,58,237,0.25));
+}
+.pub h4{color:#fff;margin-bottom:10px;font-size:19px}
+.pub p{color:var(--muted);font-size:15px;line-height:1.6}
+
+/* CODING PROFILE */
+.coding-links{
+  display:flex;justify-content:center;gap:40px;margin-top:40px;flex-wrap:wrap;
+}
+.coding-link{
+  background:rgba(255,255,255,0.03);padding:25px 40px;border-radius:18px;text-align:center;
+  transition:all .4s;border:1px solid rgba(255,255,255,0.05);
+  text-decoration:none;color:#fff;font-weight:700;font-size:18px;
+}
+.coding-link:hover{
+  transform:translateY(-6px);
+  background:linear-gradient(145deg,rgba(45,212,191,0.25),rgba(124,58,237,0.25));
+}
+.leetcode-icon svg{width:38px;height:38px;fill:#f89f1b;margin-bottom:8px;}
+
+/* LET'S CONNECT */
+.connect-links{
+  display:flex;justify-content:center;gap:40px;margin-top:40px;flex-wrap:wrap;
+}
+.connect-link{
+  background:rgba(255,255,255,0.03);padding:25px 40px;border-radius:18px;text-align:center;
+  transition:all .4s;border:1px solid rgba(255,255,255,0.05);
+  text-decoration:none;color:#fff;font-weight:700;font-size:18px;
+}
+.connect-link:hover{
+  transform:translateY(-6px);
+  background:linear-gradient(145deg,rgba(45,212,191,0.25),rgba(124,58,237,0.25));
+}
+.connect-link i{font-size:38px;margin-bottom:8px;color:var(--accent1);}
+
+/* CONTACT DETAILS */
+.contact-details{
+  text-align:center;margin-top:40px;line-height:2;font-size:18px;color:var(--muted);
+}
+.contact-details a{color:var(--accent1);text-decoration:none;font-weight:600;}
+.contact-details a:hover{text-decoration:underline;filter:brightness(1.2);}
+footer{text-align:center;padding:50px 0;color:var(--muted);font-size:15px}
+</style>
+</head>
+
+<body>
+<div id="particles-js"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container grid">
+    <div class="text">
+      <h1>Maheetha S</h1>
+      <h2>Computer Science Engineer</h2>
+      <p>Passionate about UI/UX design, machine learning, and web development — crafting 
+      innovative and user-focused digital experiences.</p>
+      <a href="#contact" class="btn btn-primary">Let's Connect →</a>
+      <a href="#projects" class="btn btn-outline">View Projects</a>
+    </div>
+    <div class="photo-frame">
+      <img src="/images/20250806_170659-Photoroom.png" alt="Profile Photo">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>I’m an enthusiastic Computer Science undergraduate eager to apply my analytical skills,
+    creativity, and teamwork in dynamic technology environments.</p>
+    <p>I enjoy designing modern interfaces, solving real-world problems with code,
+    and continuously learning emerging tools and frameworks.</p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="edu-card">
+      <h3>Bannari Amman Institute of Technology</h3>
+      <p><strong>B.E Computer Science and Engineering</strong> | CGPA: 8.38/10<br>
+      Erode, India | 2022–2026</p>
+    </div>
+    <div class="edu-card">
+      <h3>SSM Lakshmi Ammal Matric Higher Secondary School</h3>
+      <p><strong>12th Grade</strong> | Percentage: 96.6% (2021–2022)<br>
+      <strong>10th Grade</strong> | Percentage: 82% (2019–2020)<br>
+      Komarapalayam, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill"><span>Java</span></div>
+      <div class="skill"><span>SQL</span></div>
+      <div class="skill"><span>Figma</span></div>
+      <div class="skill"><span>Git</span></div>
+      <div class="skill"><span>Machine Learning</span></div>
+      <div class="skill"><span>HTML / CSS / JS</span></div>
+      <div class="skill"><span>Operating Systems</span></div>
+      <div class="skill"><span>Computer Networks</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>Lip Reading Model for Hearing Impaired</h3>
+        <p>Deep-learning model converting visual speech into text to assist the hearing-impaired.</p>
+      </div>
+      <div class="project">
+        <h3>Accident Prevention System</h3>
+        <p>Driver monitoring system using OpenCV to detect drowsiness and alert the driver.</p>
+      </div>
+      <div class="project">
+        <h3>Online Course System</h3>
+        <p>Responsive learning platform with video courses, assignments, and tracking using HTML, CSS, JS, and MySQL.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <h2>Publications & Competitions</h2>
+    <div class="pubs-grid">
+      <div class="pub">
+        <h4>Smart Saline Bottle – International Conference</h4>
+        <p>Presented an IoT-based solution for real-time saline-level monitoring.</p>
+      </div>
+      <div class="pub">
+        <h4>Galaxy ’24 Paper Presentation</h4>
+        <p>Showcased research on computer-science innovations and design.</p>
+      </div>
+      <div class="pub">
+        <h4>Lumos Innovate-A-Thon</h4>
+        <p>Proposed decentralized Web3 applications exploring blockchain potential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CODING PROFILE -->
+<section id="coding">
+  <div class="container">
+    <h2>Coding Profile</h2>
+    <div class="coding-links">
+      <a href="https://leetcode.com/u/YGSQBYyqqL/" target="_blank" class="coding-link leetcode-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M512 0C229.25 0 0 229.25 0 512s229.25 512 512 512 512-229.25 512-512S794.75 0 512 0zM777.5 585.5H483.5l-128 128c-9.75 9.75-22.5 14.25-35.25 14.25s-25.5-4.75-35.25-14.25c-19.5-19.5-19.5-51 0-70.5L413 512 284.5 383.5c-19.5-19.5-19.5-51 0-70.5s51-19.5 70.5 0l128 128H777.5c27.5 0 49.5 22.25 49.5 49.5s-22 49.5-49.5 49.5z"/></svg>
+        LeetCode
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LET’S CONNECT -->
+<section id="connect">
+  <div class="container">
+    <h2>Let's Connect</h2>
+    <div class="connect-links">
+      <a href="https://www.linkedin.com/in/maheetha-s-743b18256/" target="_blank" class="connect-link"><i class="fab fa-linkedin"></i>LinkedIn</a>
+      <a href="https://github.com/maheethacs22" target="_blank" class="connect-link"><i class="fab fa-github"></i>GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT DETAILS -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Details</h2>
+    <div class="contact-details">
+      📍 Erode, India<br>
+      📞 8610514822<br>
+      ✉️ <a href="mailto:maheetha.cs22@bitsathy.ac.in">maheetha.cs22@bitsathy.ac.in</a><br>
+      ✉️ <a href="mailto:maheethasakthivel22@gmail.com">maheethasakthivel22@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <script>document.write(new Date().getFullYear())</script> Maheetha S — Built with ❤️</footer>
+
+<!-- PARTICLES -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js",{
+  "particles":{"number":{"value":80},"size":{"value":3},"color":{"value":"#7c3aed"},
+  "line_linked":{"enable":true,"distance":130,"color":"#2dd4bf","opacity":0.4,"width":1},
+  "move":{"enable":true,"speed":1.8},"opacity":{"value":0.5}},
+  "interactivity":{"events":{"onhover":{"enable":true,"mode":"repulse"}},
+  "modes":{"repulse":{"distance":100,"duration":0.4}}}
+});
+</script>
+</body>
+</html>
